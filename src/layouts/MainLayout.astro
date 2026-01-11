@@ -16,9 +16,23 @@ const { title = "Website Sekolah" } = Astro.props;
 	</head>
 
 	<body class="font-sans text-gray-800">
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 		<Navbar />
 			<slot />
 		<Footer />
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("login", () => {
+      window.location.href = "/admin/";
+    });
+
+    window.netlifyIdentity.on("init", user => {
+      if (!user && window.location.hash.includes("recovery_token")) {
+        window.netlifyIdentity.open("recovery");
+      }
+    });
+  }
+</script>
 	</body>
 </html>
