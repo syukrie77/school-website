@@ -1,9 +1,9 @@
 ---
-title: "Siswa SMA Contoh Raih Juara Olimpiade Sains"
-description: "Prestasi membanggakan di tingkat kabupaten."
-date: 2026-08-02
-author: "Tim Akademik"
-image: "/berita/olimpiade.jpg"
+title: Siswa SMA Contoh Raih Juara Olimpiade Sains
+description: Prestasi membanggakan di tingkat kabupaten.
+date: 2026-01-02T00:00:00.000+07:00
+author: Tim Akademik
+image: /berita/olimpiade.jpg
 ---
 
 Prestasi membanggakan kembali diraih oleh siswa SMA Contoh.
