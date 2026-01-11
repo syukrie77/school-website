@@ -3,13 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <title>Admin</title>
+
+  <!-- Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
+
 <body>
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
 
   <script>
     if (window.netlifyIdentity) {
+
+      // INIT identity (INI YANG HILANG SEBELUMNYA)
+      window.netlifyIdentity.init();
+
+      // Jika belum login, buka modal login
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.open();
+        }
+      });
+
+      // Setelah login → pastikan tetap di /admin
       window.netlifyIdentity.on("login", () => {
         document.location.href = "/admin/";
       });
