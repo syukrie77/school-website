@@ -1,0 +1,72 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("berita");
+
+// Urutkan dari terbaru
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<MainLayout title="Berita Sekolah">
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Header -->
+      <div class="mb-14">
+        <h1 class="text-4xl font-bold text-gray-800 mb-3">
+          Berita & Informasi
+        </h1>
+        <p class="text-gray-600 max-w-2xl">
+          Informasi terbaru seputar kegiatan, pengumuman, dan agenda resmi sekolah.
+        </p>
+      </div>
+
+      <!-- Grid Berita -->
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <a
+            href={`/berita/${post.slug}`}
+            class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+          >
+            <!-- Gambar -->
+            {post.data.image ? (
+              <div class="overflow-hidden">
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="h-52 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ) : (
+              <div class="h-52 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-600 font-semibold">
+                Berita Sekolah
+              </div>
+            )}
+
+            <!-- Konten -->
+            <div class="p-6 flex flex-col flex-1">
+              <h2 class="text-lg font-semibold text-gray-800 mb-2 leading-snug group-hover:text-blue-700 transition">
+                {post.data.title}
+              </h2>
+
+              <p class="text-sm text-gray-600 leading-relaxed line-clamp-3 flex-1">
+                {post.data.description}
+              </p>
+
+              <div class="mt-5 flex items-center justify-between text-xs text-gray-500">
+                <span>
+                  {post.data.date.toLocaleDateString("id-ID")}
+                </span>
+                <span class="text-blue-600 font-medium">
+                  Baca →
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,68 @@
+---
+const menus = [
+  { label: "Beranda", href: "/" },
+  { label: "Profil", href: "/profil" },
+  { label: "Berita", href: "/berita" },
+  { label: "Akademik", href: "/akademik" },
+  { label: "Kontak", href: "/kontak" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 font-bold text-xl text-blue-800">
+      <img src="/logo.jpg" alt="Logo Sekolah" class="h-8 w-auto" />
+      SMA Digital Nusantara
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex gap-8">
+      {menus.map(menu => (
+        <a
+          href={menu.href}
+          class="text-gray-700 hover:text-blue-600 font-medium transition"
+        >
+          {menu.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Button -->
+    <button
+      id="menuBtn"
+      class="md:hidden p-2 rounded-lg hover:bg-gray-100"
+      aria-label="Toggle Menu"
+    >
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="md:hidden overflow-hidden max-h-0 transition-all duration-300"
+  >
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      {menus.map(menu => (
+        <a
+          href={menu.href}
+          class="text-gray-700 hover:text-blue-600 font-medium"
+        >
+          {menu.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- JS Mobile Toggle -->
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    btn?.addEventListener("click", () => {
+      menu.style.maxHeight = menu.style.maxHeight ? null : menu.scrollHeight + "px";
+    });
+  </script>
+</header>

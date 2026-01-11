@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="SMA Contoh | Website Resmi">
+  
+  <!-- HERO SECTION -->
+  <section class="bg-blue-700 text-white py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        SMA Contoh
+      </h1>
+      <p class="text-lg md:text-xl mb-8">
+        Unggul dalam Prestasi, Berkarakter, dan Berdaya Saing Global
+      </p>
+      <a
+        href="/ppdb"
+        class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300"
+      >
+        Daftar PPDB Sekarang
+      </a>
+    </div>
+  </section>
+
+  <!-- PROFIL SEKOLAH -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Tentang Sekolah</h2>
+        <p class="leading-relaxed">
+          SMA Contoh adalah sekolah unggulan yang berkomitmen pada pengembangan
+          akademik, karakter, dan keterampilan abad 21.
+        </p>
+      </div>
+      <div>
+        <img
+          src="/sekolah.jpg"
+          alt="Gedung SMA Contoh"
+          class="rounded-xl shadow"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM UNGGULAN -->
+  <section class="bg-gray-100 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        Program Unggulan
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-xl mb-2">IPA</h3>
+          <p>Fokus pada sains dan teknologi.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-xl mb-2">IPS</h3>
+          <p>Penguatan sosial dan kepemimpinan.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-xl mb-2">Bahasa</h3>
+          <p>Komunikasi dan wawasan global.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA PPDB -->
+  <section class="bg-blue-800 text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">
+        Penerimaan Peserta Didik Baru
+      </h2>
+      <p class="mb-8">
+        Segera daftarkan putra-putri Anda.
+      </p>
+      <a
+        href="https://wa.me/6285312261634"
+        class="bg-green-500 px-8 py-3 rounded-lg font-semibold"
+      >
+        Hubungi Panitia PPDB
+      </a>
+    </div>
+  </section>
+
+</MainLayout>
