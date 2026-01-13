@@ -32,7 +32,7 @@ const { post } = Astro.props;
     )}
 
     <div class="prose prose-lg max-w-none">
-      <post.Content />
+      {post.Content ? <post.Content /> : <p>Konten belum tersedia.</p>}
     </div>
   </article>
 </MainLayout>
