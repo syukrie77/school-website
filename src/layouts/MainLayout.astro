@@ -12,6 +12,23 @@ const { title = "Website Sekolah" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <!-- SEO Basic -->
+     <meta name="description" content="Website resmi sekolah yang menyajikan informasi profil, akademik, berita, dan kegiatan terbaru." />
+     <meta name="robots" content="index, follow" />
+
+     <!-- Open Graph -->
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="SMK Bina Mandiri Kutabumi" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content="Website resmi SMK Bina Mandiri Kutabumi." />
+      <meta property="og:image" content="/images/og-image.jpg" />
+      <meta property="og:url" content="{Astro.url.href}" />
+
+      <!-- Twitter -->
+       <meta name="twitter:card" content="summery_large_image" />
+
+       <!-- Conanical -->
+        <link rel="conanical" href={Astro.url.href} />
   </head>
 
   <body class="font-sans text-gray-800">

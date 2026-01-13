@@ -1,6 +1,6 @@
 ---
-title: "Kegiatan MPLS Tahun Ajaran 2026/2027"
-description: "Kegiatan MPLS berlangsung dengan meriah dan gegap gempita"
+title: "Kegiatan MPLS Tahun Ajaran 2026"
+description: "Pelaksanaan MPLS tahun ajaran 2026 di SMK Bina Mandiri Kutabumi"
 date: 2026-01-15
 author: "Humas Sekolah"
 image: "/berita/mpls.jpg"
