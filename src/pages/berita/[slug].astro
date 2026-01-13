@@ -2,7 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 
-// WAJIB: getStaticPaths
+// Static paths
 export async function getStaticPaths() {
   const posts = await getCollection("berita");
 
@@ -12,12 +12,18 @@ export async function getStaticPaths() {
   }));
 }
 
+// Props
 const { post } = Astro.props;
+
+// WAJIB render konten
+const { Content } = await post.render();
 ---
 
 <MainLayout title={post.data.title}>
   <article class="max-w-3xl mx-auto px-6 py-20">
-    <h1 class="text-3xl font-bold mb-4">{post.data.title}</h1>
+    <h1 class="text-3xl font-bold mb-4">
+      {post.data.title}
+    </h1>
 
     <p class="text-sm text-gray-500 mb-8">
       {post.data.date.toLocaleDateString("id-ID")}
@@ -32,7 +38,7 @@ const { post } = Astro.props;
     )}
 
     <div class="prose prose-lg max-w-none">
-      {post.Content ? <post.Content /> : <p>Konten belum tersedia.</p>}
+      <Content />
     </div>
   </article>
 </MainLayout>
